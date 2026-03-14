@@ -3,8 +3,10 @@ import AuthLayout from '../../components/layout/AuthLayout';
 import Input from '../../components/inputs/Input';
 import {Link, useNavigate } from 'react-router-dom';
 import { validateEmail } from '../../utils/Helper';
+import ProfilePhotoSelector from '../../components/inputs/ProfilePhotoSelector';
 
 const SignUp = () => {
+  const [profilePic,setProfilePic]=useState(null);
   const [fullName, setFullName]=useState("");
   const[email,setEmail]=useState("");
   const[password,setPassword]=useState("");
@@ -33,6 +35,7 @@ const SignUp = () => {
       <div className='w-full h-auto md:h-full mt-10 flex flex-col justify-center'>
         <h3 className='text-xl text-slate-900 font-bold mt-3 mb-6'>Create an Account</h3>
         <form onSubmit={handleSignUp}>
+          <ProfilePhotoSelector image={profilePic} setImage={setProfilePic}/>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
             <Input 
         value={fullName}
@@ -47,6 +50,7 @@ const SignUp = () => {
           placeholder="johndoe@gmail.com"
           type="text"/>
           
+          <div className='col-span-2'>
           <Input 
           value={password}
           onChange={({target}) => setPassword(target.value)}
@@ -54,9 +58,11 @@ const SignUp = () => {
           placeholder=""
           type="password"/>
           </div>
+
+          </div>
           {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
-          <button type="submit" className='w-1/3 text-sm font-medium text-white bg-violet-500 shadow-lg shadow-purple-600/5 p-2.5 rounded-md my-1 hover:bg-purple-500'>Register</button>
-          <p className='text-[13px] text-slate-800 mt-3 '>Already Have an Account ? <Link className='font-medium text-blue-600 underline' to="/login">Login</Link></p>
+          <button type="submit" className='w-full text-sm font-medium text-white bg-violet-500 shadow-lg shadow-purple-600/5 p-2.5 rounded-md my-1 hover:bg-purple-500'>Register</button>
+          <p className='flex justify-center text-[13px] text-slate-800 mt-3 '>Already Have an Account ? <Link className='font-medium text-blue-600 underline' to="/login">Login</Link></p>
         </form>
         
       </div>
