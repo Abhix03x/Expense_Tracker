@@ -7,7 +7,7 @@ const ProfilePhotoSelector = ({image,setImage}) => {
     const [previewUrl,setPreviewUrl] =useState(null);
 
     const handleImageChange =(e) =>{
-        const file = e.target.file[0];
+        const file = e.target.files[0];
         if(file){
             setImage(file);
             const preview = URL.createObjectURL(file);
@@ -49,7 +49,7 @@ const ProfilePhotoSelector = ({image,setImage}) => {
             <img src={previewUrl} alt="profile Photo"
             className='w-20 h-20 rounded-full object-cover' />
             <button
-                className='w-8 h-8 items-center justify-center bg-red text-white rounded-full absolute -bottom-1 -right-1'
+                className='w-8 h-8 flex items-center justify-center bg-red-600 text-white rounded-full absolute -bottom-1 -right-1'
                 type='button'
                 onClick={handleRemoveImage}>
                     <LuTrash/>
