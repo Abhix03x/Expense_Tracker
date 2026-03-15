@@ -18,10 +18,15 @@ app.use(
 );
 
 app.use(express.json());
+app.use((req, res, next) => {
+    console.log('Content-Type:', req.headers['content-type']);
+    console.log('Body:', req.body);
+    next();
+});
 
 connectDB();
 
-app.use("api/v1/auth",authRoutes)
+app.use("/api/v1/auth",authRoutes);
 
 const PORT = process.env.PORT ||5000;
 
