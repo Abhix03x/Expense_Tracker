@@ -3,10 +3,11 @@ import { BrowserRouter as Router,Routes,Route,Navigate } from 'react-router-dom'
 import Login from './pages/Auth/Login.jsx';
 import SignUp from './pages/Auth/SignUp.jsx';
 import Home from './pages/Dashboard/Home.jsx';
+import UserProvider from './context/userContext.jsx';
 
 const App = () => {
   return (
-    <div>
+    <UserProvider>
         <Router>
           <Routes>
             <Route path='/' element={<Root/>}/>
@@ -15,7 +16,7 @@ const App = () => {
             <Route path='/dashboard' exact element={<Home/>}/>
           </Routes>
         </Router>
-    </div>
+    </UserProvider>
   )
 }
 
