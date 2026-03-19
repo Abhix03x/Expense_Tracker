@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import { Side_Menu_Data } from '../../utils/data';
 import { useContext} from 'react';
 import { UserContext } from '../../context/userContext';
+import CharAvathar from "../inputs/CharAvathar";
 
 const SideMenu = ({activeMenu}) => {
 
@@ -28,7 +29,14 @@ const SideMenu = ({activeMenu}) => {
             {user?.profileImageUrl?(
                 <img src={user?.profileImageUrl || " "} alt="Profile Photo"
                 className='w-20 h-20 bg-slate-400 rounded-full ' />
-            ):<></> }
+            ):(
+                <CharAvathar
+                fullName={user?.fullName }
+                width="w-20"
+                height="h-20"
+                style="text-xl"
+                />
+            ) }
             <h5 className='text-gray-950 font-medium leading'>
                 {user?.fullName || " "}
             </h5>
