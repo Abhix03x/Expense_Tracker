@@ -71,6 +71,10 @@ export const getDashboardData = async (req,res) =>{
                 total:expenseLast30Days,
                 transactions:last30DaysExpenseTransaction,
             },
+            Last60DaysIncome:{
+                total:incomeLast60Days,
+                transactions:last60DaysIncomeTransaction,
+            },
             recentTransactions: lastTransaction,
 
         });
