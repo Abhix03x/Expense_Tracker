@@ -6,6 +6,7 @@ import Home from './pages/Dashboard/Home.jsx';
 import UserProvider from './context/userContext.jsx';
 import Income from './pages/Dashboard/Income.jsx';
 import Expense from './pages/Dashboard/Expense.jsx';
+import {Toaster} from 'react-hot-toast';
 
 const App = () => {
   return (
@@ -20,6 +21,14 @@ const App = () => {
             <Route path='/expense' exact element={<Expense/>}/>
           </Routes>
         </Router>
+        <Toaster
+          toastOptions={{
+            className:"",
+            style:{
+              fontSize:'13px'
+            },
+          }}
+          />
     </UserProvider>
   )
 }
